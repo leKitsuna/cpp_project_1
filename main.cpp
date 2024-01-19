@@ -152,6 +152,10 @@ class testMenu {
 int main() {
     HANDLE  hConsole;
     hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+    CONSOLE_CURSOR_INFO structCursorInfo;
+    GetConsoleCursorInfo(hConsole, &structCursorInfo);
+    structCursorInfo.bVisible = FALSE;
+    SetConsoleCursorInfo(hConsole, &structCursorInfo );
 
     testMenu root;
     while (true)
